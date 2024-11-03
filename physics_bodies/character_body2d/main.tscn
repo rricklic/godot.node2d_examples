@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy60p3xv15b1k"]
+
+[ext_resource type="PackedScene" uid="uid://drwbx72n0waa2" path="res://physics_bodies/character_body2d/ball.tscn" id="1_wld47"]
+[ext_resource type="PackedScene" uid="uid://pia2jtsq0x2y" path="res://physics_bodies/character_body2d/player_top_down.tscn" id="2_8ye3b"]
+[ext_resource type="PackedScene" uid="uid://by5j64cmpqi8r" path="res://physics_bodies/character_body2d/player_side_scroll.tscn" id="3_hccs0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em04n"]
+size = Vector2(64, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_658uh"]
+size = Vector2(1088, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk5dj"]
+size = Vector2(64, 520)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrkow"]
+size = Vector2(1085, 64)
+
+[node name="Main" type="Node2D"]
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="WallLeft"]
+polygon = PackedVector2Array(0, 0, 0, 648, 64, 648, 64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(32, 324)
+shape = SubResource("RectangleShape2D_em04n")
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="WallTop"]
+polygon = PackedVector2Array(64, 0, 1152, 0, 1152, 64, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
+position = Vector2(608, 32)
+shape = SubResource("RectangleShape2D_658uh")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="WallRight"]
+polygon = PackedVector2Array(1152, 64, 1152, 584, 1088, 584, 1088, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(1120, 324)
+shape = SubResource("RectangleShape2D_jk5dj")
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="WallBottom"]
+polygon = PackedVector2Array(64, 584, 1152, 584, 1152, 648, 64, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom"]
+position = Vector2(609.5, 616)
+shape = SubResource("RectangleShape2D_wrkow")
+
+[node name="PlayerTopDown" parent="." instance=ExtResource("2_8ye3b")]
+position = Vector2(584, 376)
+
+[node name="PlayerSideScroll" parent="." instance=ExtResource("3_hccs0")]
+position = Vector2(256, 400)
+
+[node name="Ball" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(368, 128)
+
+[node name="Ball2" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(1016, 136)
+
+[node name="Ball3" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(424, 344)
+
+[node name="Ball4" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(1064, 368)
+
+[node name="Ball5" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(112, 504)
+
+[node name="Ball6" parent="." instance=ExtResource("1_wld47")]
+position = Vector2(808, 520)

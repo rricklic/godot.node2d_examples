@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvhsk6us3coph"]
+
+[ext_resource type="PackedScene" uid="uid://dr0ifa0ktpm2w" path="res://physics_bodies/rigid_body2d/gravity_ball.tscn" id="1_2i0ka"]
+[ext_resource type="Script" path="res://physics_bodies/rigid_body2d/main.gd" id="1_225df"]
+[ext_resource type="PackedScene" uid="uid://bpktn1o0xb8ld" path="res://physics_bodies/rigid_body2d/floating_ball.tscn" id="2_7mwqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02iyw"]
+size = Vector2(1153, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inmea"]
+size = Vector2(184, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8bp6"]
+size = Vector2(83, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkqwf"]
+size = Vector2(1080, 106)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_225df")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(575.5, 692)
+shape = SubResource("RectangleShape2D_02iyw")
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(-1184, -368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(1140, 752)
+shape = SubResource("RectangleShape2D_inmea")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+position = Vector2(1120, -376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(17.5, 760)
+shape = SubResource("RectangleShape2D_x8bp6")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(0, -728)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(564, 763)
+shape = SubResource("RectangleShape2D_tkqwf")
+
+[node name="GravityBall" parent="." instance=ExtResource("1_2i0ka")]
+position = Vector2(280, 200)
+
+[node name="FloatingBall" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(680, 304)
+
+[node name="FloatingBall2" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(168, 344)
+
+[node name="FloatingBall3" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(400, 496)
+
+[node name="FloatingBall4" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(504, 200)
+
+[node name="FloatingBall5" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(888, 520)
+
+[node name="FloatingBall6" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(976, 120)
+
+[node name="FloatingBall7" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(112, 120)
+
+[node name="FloatingBall8" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall9" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall10" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall11" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall12" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall13" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall14" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall15" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall16" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="FloatingBall17" parent="." instance=ExtResource("2_7mwqg")]
+position = Vector2(152, 552)
+
+[node name="GravityBall2" parent="." instance=ExtResource("1_2i0ka")]
+position = Vector2(584, 480)
+
+[node name="GravityBall3" parent="." instance=ExtResource("1_2i0ka")]
+position = Vector2(888, 256)

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://5dslkk103qfb"]
+
+[node name="ConveyorBelt" type="Node2D"]

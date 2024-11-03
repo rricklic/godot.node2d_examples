@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://duuy3fhyad45q"]
+
+[ext_resource type="Script" path="res://physics_bodies/animatable_body2d/platform.gd" id="1_xeh5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7vq"]
+size = Vector2(232, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wl4u"]
+size = Vector2(232, 24)
+
+[sub_resource type="Animation" id="Animation_wbxpu"]
+resource_name = "move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(576, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7f2us"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Path2D/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a3o3g"]
+resource_name = "move_path"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.55, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rb2b"]
+_data = {
+"RESET": SubResource("Animation_7f2us"),
+"move": SubResource("Animation_wbxpu"),
+"move_path": SubResource("Animation_a3o3g")
+}
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_xeh5n")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="AnimatableBody2D"]
+polygon = PackedVector2Array(0, 0, 0, 24, 232, 24, 232, 0)
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(116, 11.5)
+shape = SubResource("RectangleShape2D_1t7vq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(116, 12)
+shape = SubResource("RectangleShape2D_5wl4u")
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+progress = 576.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatableBody2D")
+libraries = {
+"": SubResource("AnimationLibrary_7rb2b")
+}
+
+[node name="Timer" type="Timer" parent="."]

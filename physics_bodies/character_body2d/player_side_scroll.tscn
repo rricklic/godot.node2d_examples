@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://by5j64cmpqi8r"]
+
+[ext_resource type="Script" path="res://physics_bodies/character_body2d/player_side_scroll.gd" id="1_6idif"]
+[ext_resource type="Texture2D" uid="uid://w2cvkmkjxtqn" path="res://images/icon.svg" id="2_1kjv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frue3"]
+size = Vector2(128, 128)
+
+[node name="PlayerSideScroll" type="CharacterBody2D"]
+script = ExtResource("1_6idif")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1kjv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_frue3")

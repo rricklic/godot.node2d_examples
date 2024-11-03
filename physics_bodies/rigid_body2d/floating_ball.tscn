@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpktn1o0xb8ld"]
+
+[ext_resource type="Script" path="res://physics_bodies/rigid_body2d/floating_ball.gd" id="1_y35bs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2erb"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6gyp4"]
+radius = 8.0
+
+[node name="FloatingBall" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_h2erb")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_y35bs")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.592575, 0.296499, 1)
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6gyp4")

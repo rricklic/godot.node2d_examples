@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://pia2jtsq0x2y"]
+
+[ext_resource type="Script" path="res://physics_bodies/character_body2d/player_top_down.gd" id="1_5q78j"]
+[ext_resource type="Texture2D" uid="uid://w2cvkmkjxtqn" path="res://images/icon.svg" id="2_1auow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogwj2"]
+size = Vector2(128, 128)
+
+[node name="PlayerTopDown" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_5q78j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1auow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ogwj2")
